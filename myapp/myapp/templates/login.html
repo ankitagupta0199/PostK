@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block contentbox %}					
+
+<h1>Login here!!!</h1>
+<font style="color:orange;font-size:20px;">{{output}}</font>		
+<br>
+<form method="post" action={{curl}}login/ >
+{% csrf_token %}
+<table  cellspacing="10">
+<tr>
+	<td>Email(Username)</td>
+	<td><input type="text" name="email" value={{cunm}} ></td>
+</tr>
+<tr>
+	<td>Password</td>
+	<td><input type="password" name="password" value={{cpass}} ></td>
+</tr>
+<tr>
+	<td colspan="2"><input type="checkbox" name="chk" value="remember"/> Remember me?</td>
+</tr>
+
+<tr>
+	<td><input type="submit" name="s" value="Login"/></td>
+</tr>
+</table>
+</form>
+
+
+{% endblock %}

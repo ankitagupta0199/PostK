@@ -1,0 +1,191 @@
+{% load static %}
+
+<html>
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>PostKrde.com</title>
+<link href="{% static 'images/logo.png' %}" rel="icon">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/newstyle.css' %}" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/jquery.dropotron-1.0.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.slidertron-1.1.js' %}"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#menu > ul').dropotron({
+			mode: 'fade',
+			globalOffsetY: 11,
+			offsetY: -15
+		});
+	});
+</script>
+</head>
+<body>
+
+
+<div id="wrapper">
+	
+	<!-- header section starts -->
+	{% block header %}				
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">PostKrde.com</a></h1>
+		</div>
+		<div id="slogan">
+			<h2>Buy and Sell anything....</h2>
+		</div>
+	</div>
+		{% endblock %}	
+
+	<!-- menu section starts -->
+	{% block nav %}	
+	<div id="menu">
+		<ul>
+			<li><a href={{curl}}home/>Home</a></li>
+			<li><a href={{curl}}about/>About us</a></li>
+			<li><a href={{curl}}contact/>Contact</a></li>
+			<li>
+				<span class="opener">Service<b></b></span>
+				<ul>
+					<li><a href={{curl}}service/>Portfolio</a></li>
+					<li><a href="#">Latest News</a></li>
+					<li><a href="#">Upcomimg events</a></li>
+				</ul>
+			</li>
+			<li><a href={{curl}}register/>Register</a></li>
+			<li class="last"><a href={{curl}}login/>Login</a></li>
+		</ul>
+		<br class="clearfix" />
+	</div>
+	{% endblock %}
+
+
+	<!-- slider section starts -->
+	{% block slider %}	
+
+<script type="text/javascript">
+	$(function() {
+		$('#slider').slidertron({
+			viewerSelector: '.viewer',
+			indicatorSelector: '.indicator span',
+			reelSelector: '.reel',
+			slidesSelector: '.slide',
+			speed: 'slow',
+			advanceDelay: 4000
+		});
+	});
+</script>
+
+	<div id="slider">
+		<div class="viewer">
+			<div class="reel">
+				<div class="slide">
+					<img src="{% static 'images/logo.png' %}" alt="" />
+				</div>
+				<div class="slide">
+					<img src="{% static 'images/slide02.jpg' %}" alt="" />
+				</div>
+				<div class="slide">
+					<img src="{% static 'images/slide03.jpg' %}" alt="" />
+				</div>
+				<div class="slide">
+					<img src="{% static 'images/slide04.jpg' %}" alt="" />
+				</div>
+				<div class="slide">
+					<img src="{% static 'images/slide05.jpg' %}" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="indicator">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+	</div>
+	{% endblock %}
+
+
+{% block page %}
+
+	<!-- page section starts -->
+	<div id="page">
+		
+		<div id="content">
+			<div class="box">
+{% block contentbox %}					
+	<h2>Welcome to PostKrde.com</h2>
+				
+				<p>This is online classified application for online buying and selling of products</p>
+				<!-- write yout content here 	-->
+{% endblock %}
+			</div>
+			<br class="clearfix" />
+		</div>
+
+
+		<div id="sidebar">
+			<div class="box">
+{% block sidebarbox %}	
+			<h3>Social links</h3>
+				<ul class="list">
+					<li class="first"><a href="#">Facebook</a></li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">LinkedIn</a></li>
+					<li><a href="#">Google+</a></li>
+				</ul>
+{% endblock %}
+			</div>
+
+			
+		</div>
+
+		<br class="clearfix" />
+	</div>
+{% endblock %}
+
+
+{% block bottom %}
+	<div id="page-bottom">
+		<div id="page-bottom-content">
+			<h3>About us</h3>
+			<p>
+				This is online classified application for online buying and selling of products
+				This is online classified application for online buying and selling of products
+				This is online classified application for online buying and selling of products
+				This is online classified application for online buying and selling of products
+			</p>
+		</div>
+		<div id="page-bottom-sidebar">
+			<h3>Contact Details</h3>
+			<ul class="list">
+				<li class="first"><a href="#">
+				Phone: XX-XX-XX-XX
+				</a></li>
+				<li><a href="#">Email: test@gmail.com</a></li>
+				<li class="last"><a href="#">
+					Address: -------
+				</a></li>
+			</ul>
+		</div>
+		<br class="clearfix" />
+	</div>
+{% endblock %}
+
+
+</div>
+
+<!-- footer section starts -->
+
+{% block footer %}
+<div id="footer">
+	<h1>All Right Reserved &copy; DjangoBatch ,2019-2020</h1>
+</div>
+{% endblock %}
+
+
+
+</body>
+</html>

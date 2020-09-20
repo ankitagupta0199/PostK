@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block contentbox %}					
+	<h1>Welcome to PostKrde.com</h1>
+	<br>	
+	<h2>Service page</h2>		
+
+<script>
+function selectCity(sid)
+{
+  var xhttp=new XMLHttpRequest()
+  xhttp.open("GET","http://localhost:8000/selectCity/?sid="+sid,true)
+  xhttp.send()
+  
+  xhttp.onreadystatechange=function(){
+  	if(xhttp.status==200 && xhttp.readyState==4)
+  	{
+  		document.getElementById('result').innerHTML=xhttp.responseText
+  	}
+  }
+  
+}
+</script>
+
+	
+
+State
+ <select onchange="selectCity(this.value)">
+<option>select state</option>
+{% for row in slist %}	
+	<option value={{row.sid}}>{{row.snm}}</option>
+{% endfor %}
+</select>	
+
+<br><br>
+
+City
+ <select id="result">
+<option>select city</option>
+</select>	
+
+	
+{% endblock %}

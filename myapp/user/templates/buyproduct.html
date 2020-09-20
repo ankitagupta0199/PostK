@@ -1,0 +1,82 @@
+{% extends 'userhome.html' %}
+
+
+{% block slider %}	
+{% endblock %}	
+
+{% block page %}		
+<center>
+<br>
+<h2>Welcome to User panel</h2>
+</center>	
+
+<h3>Buy product: </h3>
+<h4>Welcome user : {{ sunm }}</h4>
+<h4>AdsId : {{ adsid }}</h4>
+<h4>Make payment for : &#8377; {{ adsprice }}</h4>
+
+ <form action={{paypalURL}} method="post">
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business" value={{paypalID}}>
+        
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick">
+        
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value={{adsid}}>
+        <input type="hidden" name="item_number" value=1>
+        <input type="hidden" name="amount" value={{adsprice}}>
+        <input type="hidden" name="currency_code" value="USD">
+        
+        <!-- Specify URLs -->
+        <input type='hidden' name='cancel_return' value={{curl}}cancel/ >
+        <input type='hidden' name='return' value={{curl}}user/payment/?adsid={{adsid}}&adsprice={{adsprice}}&uid={{sunm}} >
+        
+        <!-- Display the payment button. -->
+        <input type="image" name="submit" border="0"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+    </form>
+
+
+
+
+
+{% endblock %}
+
+{% block sidebarbox %}	
+			<h3>User links</h3>
+				<ul class="list">
+					<li class="first"><a href="#">link1</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link3</a></li>
+					<li><a href="#">link4</a></li>
+				</ul>
+{% endblock %}
+	
+
+{% block bottom %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

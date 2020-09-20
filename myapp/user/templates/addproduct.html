@@ -1,0 +1,90 @@
+{% extends 'userhome.html' %}
+
+
+{% block page %}
+
+
+<center>
+<br>
+<h1>Add Post Here!!!!</h1>    		
+<br>
+<span style="font-size:20px;color:orange;">{{output}}</span>
+<form method="post" action={{curl}}user/addproduct/  enctype="multipart/form-data">
+{% csrf_token %}
+<table border="2" cellspacing="10" cellpadding="10">
+	<tr>
+		<td>Ads Title</td>
+		<td><input type="text" name="adstitle"  placeholder="Enter ads title"/></td>
+	</tr>
+	<tr>
+		<td>Category</td>
+		<td>
+		<select style="width:250px;" name="adssubcat">
+			<option>Select Category</option>
+			{% for row in subclist %}
+				<option>{{row.subcatnm}}</option>
+			{% endfor %}
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Description</td>
+		<td>
+		<textarea cols="30" rows="5" name="adsdescription"  placeholder="Enter description"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>Price</td>
+		<td><input type="text" name="adsprice"  placeholder="Enter price"/></td>
+	</tr>
+	
+	<tr>
+		<td>Ads Photos</td>
+		<td>
+		Image 1 : <input type="file" name="file1"/>
+		<br>
+		Image 2 : <input type="file" name="file2"/>
+		<br>
+		Image 3 : <input type="file" name="file3"/>
+		<br>
+		Image 4 : <input type="file" name="file4"/>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td>Ads Location</td>
+		<td>
+		<select name="adscity" style="width:250px;">
+		<option>Select City</option>
+		<optgroup label="Madhya Pradesh">
+			<option>Indore</option>
+			<option>Ujjain</option>
+			<option>Bhopal</option>
+		</optgroup>
+		<optgroup label="Maharastra">
+			<option>Mumbai</option>
+			<option>Pune</option>
+			<option>Nasik</option>
+		</optgroup>
+		</select>
+		</td>
+	</tr>
+	<input type="hidden" name="uid"  value="{{sunm}}" />
+	<tr>
+		<td colspan="2">Enable Bidding &nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk"  value="1"/></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+		<center>
+		<input type="submit" name="s" value="Add Post"/>
+		</center>
+		</td>
+	</tr>
+</table>
+</form>
+</center>
+<br><br>
+
+{% endblock %}

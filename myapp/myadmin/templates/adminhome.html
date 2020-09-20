@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+{% block nav %}	
+<div id="menu">
+<ul>
+<li><a href={{curl}}myadmin/adminhome/>Admin Home</a></li>
+
+<li>
+<span class="opener">Manage Category<b></b></span>
+<ul>
+<li><a href={{curl}}myadmin/addcat/>Add Category</a></li>
+<li><a href="#">Manage Category</a></li>
+<li><a href={{curl}}myadmin/addsubcat/>Add SubCategory</a></li>
+<li><a href="#">Manage SubCategory</a></li>
+</ul>
+</li>			
+
+<li><a href="#">Manage Ads</a></li>
+<li><a href={{curl}}myadmin/manageusers/ >Manage Users</a></li>
+
+<li>
+<span class="opener">Settings<b></b></span>
+<ul>
+<li><a href="#">Change Password</a></li>
+<li><a href="#">Launch Notification</a></li>
+<li><a href="#">View Feedbacks</a></li>
+<li><a href="#">Payment History</a></li>
+<li><a href={{curl}}login/>Logout</a></li>
+</ul>
+</li>
+
+
+</ul>
+		<br class="clearfix" />
+	</div>
+	{% endblock %}
+	
+	
+{% block slider %}	
+{% endblock %}	
+
+{% block contentbox %}					
+	<h2>Welcome to Admin panel</h2>
+	<h3>Welcome : {{sunm}}</h3>			
+{% endblock %}
+
+{% block sidebarbox %}	
+			<h3>Admin links</h3>
+				<ul class="list">
+					<li class="first"><a href="#">link1</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link3</a></li>
+					<li><a href="#">link4</a></li>
+				</ul>
+{% endblock %}
+	
+
+{% block bottom %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

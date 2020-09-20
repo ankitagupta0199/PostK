@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+{% block nav %}	
+<div id="menu">
+<ul>
+<li><a href={{curl}}home/>User Home</a></li>
+
+<li>
+<span class="opener">Manage Ads<b></b></span>
+<ul>
+<li><a href="{{curl}}user/addproduct/">Add product</a></li>
+<li><a href="#">Manage product</a></li>
+<li><a href="{{curl}}user/managebidding/">Manage Bidding Product</a></li>
+</ul>
+</li>			
+
+<li><a href="#">Notifications</a></li>
+<li><a href="#">Feedbacks</a></li>
+
+<li>
+<span class="opener">Settings<b></b></span>
+<ul>
+<li><a href="#">Change Password</a></li>
+<li><a href={{curl}}user/editprofileuser/>Edit Profile</a></li>
+<li><a href={{curl}}login/>Logout</a></li>
+</ul>
+</li>
+
+
+</ul>
+		<br class="clearfix" />
+	</div>
+	{% endblock %}
+	
+	
+{% block slider %}	
+{% endblock %}	
+
+{% block contentbox %}					
+	<h2>Welcome to User panel</h2>
+	<h3>Welcome user : {{ sunm }}</h3>
+	
+{% endblock %}
+
+{% block sidebarbox %}	
+			<h3>User links</h3>
+				<ul class="list">
+					<li class="first"><a href="#">link1</a></li>
+					<li><a href="#">link2</a></li>
+					<li><a href="#">link3</a></li>
+					<li><a href="#">link4</a></li>
+				</ul>
+{% endblock %}
+	
+
+{% block bottom %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

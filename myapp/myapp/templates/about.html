@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block contentbox %}					
+
+	<h1>Welcome to PostKrde.com</h1>
+	<br>	
+	<h2>About page</h2>		
+	
+	
+	
+    <img src="{% static 'images/logo.png' %}" height="100" width="150"/>
+    <h2>Name: {{pname}}</h2>
+    <h2>Price: {{pprice}}</h2>
+    <form action={{paypalURL}} method="post">
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business" value={{paypalID}}>
+        
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick">
+        
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value={{pname}}>
+        <input type="hidden" name="item_number" value=1>
+        <input type="hidden" name="amount" value={{pprice}}>
+        <input type="hidden" name="currency_code" value="USD">
+        
+        <!-- Specify URLs -->
+        <input type='hidden' name='cancel_return' value={{curl}}cancel/ >
+        <input type='hidden' name='return' value={{curl}}success/ >
+        
+        <!-- Display the payment button. -->
+        <input type="image" name="submit" border="0"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+    </form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+{% endblock %}

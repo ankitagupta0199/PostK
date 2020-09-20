@@ -1,0 +1,63 @@
+{% extends 'adminhome.html' %}
+
+
+{% block page %}
+
+{% load static %}
+
+<br>
+<center>
+<h1>View and Manage Users List</h1>
+<br>
+
+<table cellspacing="10">
+<tr>
+  <th>RegID</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Address</th>
+  <th>Mobile</th>
+  <th>City</th>
+  <th>DOB</th>
+  <th>Status</th>
+  <th>Action</th>	
+</tr>
+{% for row in userlist %}
+<tr>
+	<td>{{row.regid}}</td>
+	<td>{{row.name}}</td>
+	<td>{{row.email}}</td>
+	<td>{{row.address}}</td>
+	<td>{{row.mobile}}</td>
+	<td>{{row.city}}</td>
+	<td>{{row.dob}}</td>
+	<td>
+	{% if row.status %}
+	<a href={{curl}}myadmin/manageuserstatus?regid={{row.regid}}&vstatus=block>                    
+	<img title="Block Users" src="{% static 'images/block.png' %}" height="40" width="70" />
+	</a>
+	{% else %}
+	<a href={{curl}}myadmin/manageuserstatus?regid={{row.regid}}&vstatus=unblock>
+	<img title="Un-Block Users" src="{% static 'images/unblock.jpeg' %}" height="40" width="70" />		
+	</a>
+	{% endif %}
+	</td>
+	<td>
+	<a href={{curl}}myadmin/manageuserstatus?regid={{row.regid}}&vstatus=delete>
+	<img title="Un-Block Users" src="{% static 'images/delete.png' %}" height="40" width="70" />
+	</a>
+	</td>
+</tr>
+<tr><td colspan="9"><hr></td></tr>
+{% endfor %}
+</table>
+</center>
+<br>
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>AJAX Demo</title>
+	<script>
+	function ajaxDemo()
+	{
+		var xhttp=new XMLHttpRequest()
+		xhttp.open("GET","demo1.html",true)
+		xhttp.send()
+		
+		xhttp.onreadystatechange=function(){
+			if(xhttp.status==200 && xhttp.readyState==4)
+			{
+				document.getElementById('response').innerHTML=xhttp.responseText
+			}
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<button onclick="ajaxDemo()">Let AJAX work</button>
+	<div id="response"></div>
+</body>
+</html>

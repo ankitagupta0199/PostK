@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contentbox %}					
+<style>
+#catmain
+{
+  height:450px;
+  width:600px;
+}
+.catpart
+{
+  height:150px;
+  width:200px;
+  float:left;
+}
+</style>
+
+
+<h2>Ads Sub Category : {{cnm}}</h2>
+		
+<div id="catmain">
+{% for row in subclist %}	
+<a href={{curl}}viewads/?scnm={{row.subcatnm}}  title={{row.subcatnm}} >		
+	<div class="catpart">
+	<center>
+	<img src={{media_url}}/{{row.subcaticon}} height="100" width="150"/>
+	<br>
+	<b>{{row.subcatnm}}</b>
+	</center>	
+	</div>
+</a>
+{% endfor %}	
+</div>
+
+{% endblock %}
+
+
+{% block sidebarbox %}	
+<h3>Category List</h3>
+<ul class="list">
+{% for row in clist %}
+<li>
+<a href={{curl}}showsubcat/?cnm={{row.catnm}}  title={{row.catnm}}>
+{{row.catnm}}
+</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
+
+
+
+
+
